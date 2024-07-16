@@ -52,6 +52,8 @@ Sub Main
 	/if (${FindItem[${item${i}}].ID}) /goto :nextset
 /next i
 
+/keypress CLOSE_INV_BAGS
+
 /echo Done!
 
 /return
