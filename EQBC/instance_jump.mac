@@ -1,0 +1,62 @@
+Sub Main
+
+/if (!${Bool[${instancetype}]}) /call SetUp_Variables
+/declare RaidInstance string local True
+
+|HowMany should equal the number of toons you have instances for.
+/declare HowMany int local 3
+
+/declare toon[${HowMany}] string local
+   /varset toon[1] Rangewind
+   /varset toon[2] Masrath
+   /varset toon[3] Bigsunshine
+|   /varset toon[4] 
+|   /varset toon[5] 
+|   /varset toon[6] 
+|   /varset toon[7] 
+|   /varset toon[8] 
+|   /varset toon[9] 
+|   /varset toon[10] 
+|   /varset toon[11] 
+|   /varset toon[12] 
+|   /varset toon[13] 
+|   /varset toon[14] 
+|   /varset toon[15] 
+|   /varset toon[16] 
+|   /varset toon[17] 
+|   /varset toon[18] 
+|   /varset toon[19] 
+|   /varset toon[20] 
+|   /varset toon[21] 
+|   /varset toon[22] 
+|   /varset toon[23] 
+|   /varset toon[24] 
+
+/if (${instancecheck}>=${HowMany}+1) /varset instancecheck 1
+
+/if (${RaidInstance.Equal[True]} && ${instancetype.Equal[Guild]}) {
+   /varset instancetype Raid 
+   /bcaa //say enter ${instancetype} ${toon[${instancecheck}]} ${Zone.ShortName}
+   /echo Heading to ${toon[${instancecheck}]}'s ${instancetype} instance
+   /varcalc instancecheck ${instancecheck}+1
+} else /if (${RaidInstance.Equal[True]} && ${instancetype.Equal[Raid]}) {
+         /varset instancetype Guild
+         /bcaa //say enter ${instancetype} ${toon[${instancecheck}]} ${Zone.ShortName}
+         /echo Heading to ${toon[${instancecheck}]}'s ${instancetype} instance
+       }
+
+/if (${RaidInstance.NotEqual[True]}) {
+   /bcaa //say enter ${instancetype} ${toon[${instancecheck}]} ${Zone.ShortName}
+   /echo Heading to ${toon[${instancecheck}]}'s ${instancetype} instance
+   /varcalc instancecheck ${instancecheck}+1
+}
+
+/return
+
+|==== Sub SetUp_Variables
+	Sub SetUp_Variables
+      /if (!${instancetype.Equal[Guild]}) /declare instancetype string global Guild
+      /if (!${instancecheck}>0) /declare instancecheck int global 1
+      /echo Instance Settings Initialized
+	/return
+|==== End Set_UpVariables
