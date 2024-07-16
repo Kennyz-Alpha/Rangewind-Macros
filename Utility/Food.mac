@@ -2,7 +2,7 @@
 Sub Main
 
 :Loop
-/if (${FindItemCount[=Embalmers Skinning Knife]} == 1 && ${FindItem[=Mystery Meat].Stack} < 950) {
+/if (${FindItemCount[=Embalmers Skinning Knife]} == 1 && ${FindItemCount[Mystery Meat]} < 950) {
 	/itemnotify "Embalmers Skinning Knife" rightmouseup
 	/delay 1m ${Cursor.ID}
 	/delay 1
