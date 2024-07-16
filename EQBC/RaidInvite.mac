@@ -1,0 +1,122 @@
+
+Sub Main
+
+    /declare NumberofGroups int local
+    /varset NumberofGroups 5
+
+    /declare Group1[6] string local
+    /varset Group1[1]  Rangewind
+    /varset Group1[2]  Tezzeret
+    /varset Group1[3]  Vertavien
+    /varset Group1[4]  Jabari
+    /varset Group1[5]  Healingcrystal
+    /varset Group1[6]  Paypally
+
+    /declare Group2[6] string local
+    /varset Group2[1]  Ajanii
+    /varset Group2[2]  Toxrill
+    /varset Group2[3]  Kolvori
+    /varset Group2[4]  Faukytt
+    /varset Group2[5]  Barbsbehindyou
+    /varset Group2[6]  Chandar
+
+    /declare Group3[6] string local
+    /varset Group3[1]  Scallyhippo
+    /varset Group3[2]  Doubledore
+    /varset Group3[3]  Voidmort
+    /varset Group3[4]  Frogelio
+    /varset Group3[5]  Enchantrix
+    /varset Group3[6]  Bigsunshine
+
+    /declare Group4[6] string local
+    /varset Group4[1]  Felidar
+    /varset Group4[2]  Honeybunny
+    /varset Group4[3]  Markov
+    /varset Group4[4]  Seekerofshadows
+    /varset Group4[5]  Singu
+    /varset Group4[6]  Rofelos
+
+    /declare Group5[6] string local
+    /varset Group5[1]  Singingtii
+    /varset Group5[2]  Masrath
+    /varset Group5[3]  Kemba
+    /varset Group5[4]  Krosan
+    /varset Group5[5]  Uktabi
+    /varset Group5[6]  Mellodrain
+
+    /declare Group6[6] string local
+    /varset Group6[1]  
+    /varset Group6[2]  
+    /varset Group6[3]  
+    /varset Group6[4]  
+    /varset Group6[5]  
+    /varset Group6[6]  
+
+    /declare Group7[6] string local
+    /varset Group7[1]  
+    /varset Group7[2]  
+    /varset Group7[3]  
+    /varset Group7[4]  
+    /varset Group7[5]  
+    /varset Group7[6]  
+
+    /declare Group8[6] string local
+    /varset Group8[1]  
+    /varset Group8[2]  
+    /varset Group8[3]  
+    /varset Group8[4]  
+    /varset Group8[5]  
+    /varset Group8[6]  
+
+    /declare Group9[6] string local
+    /varset Group9[1]  
+    /varset Group9[2]  
+    /varset Group9[3]  
+    /varset Group9[4]  
+    /varset Group9[5]  
+    /varset Group9[6]  
+
+    /declare Group10[6] string local
+    /varset Group10[1]  
+    /varset Group10[2]  
+    /varset Group10[3]  
+    /varset Group10[4]  
+    /varset Group10[5]  
+    /varset Group10[6]  
+
+    /declare Group11[6] string local
+    /varset Group11[1]  
+    /varset Group11[2]  
+    /varset Group11[3]  
+    /varset Group11[4]  
+    /varset Group11[5]  
+    /varset Group11[6]  
+
+    /declare Group12[6] string local
+    /varset Group12[1]  
+    /varset Group12[2]  
+    /varset Group12[3]  
+    /varset Group12[4]  
+    /varset Group12[5]  
+    /varset Group12[6]  
+
+    /declare g int local
+    /declare s int local
+
+    |Group Leaders sending invites
+	/for g 1 to ${NumberofGroups} do
+        /for s 2 to 6 do
+            /bct ${Group${g}[1]} //invite ${Group${g}[${s}]}
+            /delay 5
+            /bct ${Group${g}[${s}]} //keypress ctrl+I
+        /next s
+	/next g
+
+    |Form Raid
+    /for g 2 to ${NumberofGroups} do
+        /bct ${Group1[1]} //raidinvite ${Group${g}[1]}
+        /delay 5
+        /bct ${Group${g}[1]} //raidaccept
+	/next g
+
+/return
