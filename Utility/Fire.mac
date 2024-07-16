@@ -1,0 +1,10 @@
+Sub Main
+        /tar Fire
+        /nomodkey /ctrlkey /itemnotify "Fire Crystal" leftmouseup
+        /delay 5
+        /click left target
+        /delay 5
+       
+        /notify GiveWnd GVW_Give_Button leftmouseup
+        /delay 1s
+/return

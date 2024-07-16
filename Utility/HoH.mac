@@ -1,0 +1,57 @@
+|Combine HoH tokens
+|Have an empty Magic Box in slot 10
+|1 2
+|3 4
+|5 6
+|7 8 
+|9 10 <--Empty "A Magic Box"
+|
+
+Sub Main
+|This is the slot of the Magic Box I'll be using. Use 10 since I'm using Auto Inventory
+/declare MagicBoxSlot string outer pack10
+|These are the items I'm going to check for, grab 2 of, and combine them in
+/declare item1 string outer Split Paw Quest Token
+/declare item2 string outer The Oceanlord Quest Token
+/declare item3 string outer The Lightbringer Quest Token
+/declare item4 string outer The Tranquil Quest Token
+/declare item5 string outer The Faceless Quest Token
+/declare item6 string outer H-One N-One Quest Token
+/declare item7 string outer The Prince of Darkness Quest Token
+/declare i int outer 1
+
+/keypress OPEN_INV_BAGS
+|Delay 1minute until that condition is met
+/delay 1m ${Window[pack10].Open}
+
+|Cycle through all 7 of the items above
+/for i 1 to 7
+	:nextset
+	|Check if I have 2 or more of the item
+	/if (${FindItem[=${item${i}}].Stack} < 2) {
+	/echo I don't have enough of ${item${i}} I only have ${FindItem[=${item${i}}].Stack}. Going to next one
+	/next i
+	}
+	|Pickup the first one
+	/ctrlkey /itemnotify "${item${i}}" leftmouseup
+	/delay 1m ${Cursor.ID} == ${FindItem[=${item${i}}].ID}
+	/itemnotify in ${MagicBoxSlot} 1 leftmouseup
+	/delay 1m !${Cursor.ID}
+	|Pickup the second one
+	/ctrlkey /itemnotify "${item${i}}" leftmouseup
+	/delay 1m ${Cursor.ID} == ${FindItem[=${item${i}}].ID}
+	/itemnotify in ${MagicBoxSlot} 2 leftmouseup
+	/delay 1m !${Cursor.ID}
+	|Hit Combine and put it away
+	/combine ${MagicBoxSlot}
+	/delay 1m ${Cursor.ID}
+	/delay 2
+	/autoinventory
+	/delay 1m !${Cursor.ID}
+	|If I still have more, go through the process again
+	/if (${FindItem[${item${i}}].ID}) /goto :nextset
+/next i
+
+/echo Done!
+
+/return
