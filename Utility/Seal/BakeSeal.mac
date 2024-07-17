@@ -2,7 +2,7 @@
 Sub Main
 
 /declare i int local
-    /for i 1 to 5
+    /for i 1 to 10
 		/ctrlkey /itemnotify "Unfired Artisan's Seal" leftmouseup
 		/itemnotify enviro1 leftmouseup
 		/ctrlkey /itemnotify "High Quality Firing Sheet" leftmouseup
