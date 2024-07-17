@@ -1,5 +1,8 @@
 # Rangewind-Utility
 
+# Seal
+	Macros for crafting Artisan's Seal.  Mounted gems in bulk of 50.  Seals in groups of 10.
+ 
 # buyaa.mac
 	Buys all available AA
 
