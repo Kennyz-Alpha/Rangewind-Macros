@@ -1,0 +1,17 @@
+|==== Sub Main
+Sub Main
+
+/declare i int local
+    /for i 1 to 5
+		/ctrlkey /itemnotify "Unfired Artisan's Seal" leftmouseup
+		/itemnotify enviro1 leftmouseup
+		/ctrlkey /itemnotify "High Quality Firing Sheet" leftmouseup
+        /itemnotify enviro2 leftmouseup
+		/combine containerwindow
+			/delay 10s ${Cursor.ID}
+		/delay 2
+		/autoinventory
+    /next i
+
+/return
+|==== End Main

@@ -1,0 +1,23 @@
+|==== Sub Main
+Sub Main
+
+/keypress OPEN_INV_BAGS
+
+/declare i int outer 1
+    /for i 1 to 50
+		/ctrlkey /itemnotify "Velium Bar" leftmouseup
+		/itemnotify in ${FindItem[=Planar Jeweler's Kit].InvSlot.Name} 1 leftmouseup
+		/ctrlkey /itemnotify "Velium Bar" leftmouseup
+        /itemnotify in ${FindItem[=Planar Jeweler's Kit].InvSlot.Name} 2 leftmouseup
+		/ctrlkey /itemnotify "Blue Diamond" leftmouseup
+        /itemnotify in ${FindItem[=Planar Jeweler's Kit].InvSlot.Name} 3 leftmouseup
+		/combine ${FindItem[=Planar Jeweler's Kit].InvSlot.Name}
+			/delay 1m ${Cursor.ID}
+		/delay 1
+		/autoinventory
+    /next i
+
+/keypress CLOSE_INV_BAGS
+
+/return
+|==== End Main

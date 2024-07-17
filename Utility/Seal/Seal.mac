@@ -1,0 +1,27 @@
+|==== Sub Main
+Sub Main
+
+/declare i int local
+    /for i 1 to 5
+		/ctrlkey /itemnotify "Mounted Jacinth" leftmouseup
+		/itemnotify enviro1 leftmouseup
+		/ctrlkey /itemnotify "Mounted Diamond" leftmouseup
+        /itemnotify enviro2 leftmouseup
+		/ctrlkey /itemnotify "Mounted Blue Diamond" leftmouseup
+		/itemnotify enviro3 leftmouseup
+		/ctrlkey /itemnotify "Mounted Black Sapphire" leftmouseup
+        /itemnotify enviro4 leftmouseup
+		/ctrlkey /itemnotify "Small Block of Clay" leftmouseup
+		/itemnotify enviro5 leftmouseup
+		/ctrlkey /itemnotify "Vial of Purified Mana" leftmouseup
+        /itemnotify enviro6 leftmouseup
+		/ctrlkey /itemnotify "Water Flask" leftmouseup
+		/itemnotify enviro7 leftmouseup
+		/combine containerwindow
+			/delay 10s ${Cursor.ID}
+		/delay 2
+		/autoinventory
+    /next i
+
+/return
+|==== End Main
